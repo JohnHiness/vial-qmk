@@ -17,6 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 #include "rgb_matrix_map.h"
 
+#define RGB_ROSE        0xFF, 0x00, 0x80
+
 enum custom_layers {
     _BASE,
     _FN1,
@@ -169,14 +171,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		    rgb_matrix_set_color(LED_J, RGB_GREEN);
 			rgb_matrix_set_color(LED_F, RGB_GREEN);
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_NUM)/sizeof(LED_LIST_CUST_NUM[0]); i++) {
-                rgb_matrix_set_color(LED_LIST_CUST_NUM[i], RGB_AZURE);
+                rgb_matrix_set_color(LED_LIST_CUST_NUM[i], RGB_BLUE);
             }
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_SYMBOLS)/sizeof(LED_LIST_CUST_SYMBOLS[0]); i++) {
                 rgb_matrix_set_color(LED_LIST_CUST_SYMBOLS[i], RGB_YELLOW);
             }
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_MOD)/sizeof(LED_LIST_CUST_MOD[0]); i++) {
-                rgb_matrix_set_color(LED_LIST_CUST_MOD[i], RGB_MAGENTA);
+                rgb_matrix_set_color(LED_LIST_CUST_MOD[i], RGB_ROSE);
             }
+			rgb_matrix_set_color(LED_FN, RGB_RED);
+			rgb_matrix_set_color(LED_LGUI, RGB_RED);
+			rgb_matrix_set_color(LED_ESC, RGB_RED);
+			rgb_matrix_set_color(LED_DEL, RGB_RED);
 			break;
         case _FN1:  // on Fn layer select what the encoder does when pressed
             // Add RGB Timeout Indicator -- shows 0 to 139 using F row and num row;  larger numbers using 16bit code
