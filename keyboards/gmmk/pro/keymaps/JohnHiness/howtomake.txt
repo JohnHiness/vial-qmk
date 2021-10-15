@@ -1,0 +1,3 @@
+while on this branch (e.g. using: git switch gmmk-pro/JohnHiness), do:
+make git-submodule
+make gmmk/pro:JohnHiness
