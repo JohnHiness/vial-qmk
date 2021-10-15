@@ -166,17 +166,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         switch(get_highest_layer(layer_state)){  // special handling per layer
 		case _BASE:
-		    rgb_matrix_set_color(LED_J, RGB_BLUE);
+		    rgb_matrix_set_color(LED_J, RGB_GREEN);
 			rgb_matrix_set_color(LED_F, RGB_GREEN);
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_NUM)/sizeof(LED_LIST_CUST_NUM[0]); i++) {
                 rgb_matrix_set_color(LED_LIST_CUST_NUM[i], RGB_AZURE);
             }
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_SYMBOLS)/sizeof(LED_LIST_CUST_SYMBOLS[0]); i++) {
-                rgb_matrix_set_color(LED_LIST_CUST_SYMBOLS[i], RGB_);
+                rgb_matrix_set_color(LED_LIST_CUST_SYMBOLS[i], RGB_YELLOW);
             }
 			for (uint8_t i=0; i<sizeof(LED_LIST_CUST_MOD)/sizeof(LED_LIST_CUST_MOD[0]); i++) {
-                rgb_matrix_set_color(LED_LIST_CUST_MOD[i], RGB_);
+                rgb_matrix_set_color(LED_LIST_CUST_MOD[i], RGB_MAGENTA);
             }
+			break;
         case _FN1:  // on Fn layer select what the encoder does when pressed
             // Add RGB Timeout Indicator -- shows 0 to 139 using F row and num row;  larger numbers using 16bit code
             // if (timeout_threshold <= 10) rgb_matrix_set_color(LED_LIST_FUNCROW[timeout_threshold], RGB_RED);
